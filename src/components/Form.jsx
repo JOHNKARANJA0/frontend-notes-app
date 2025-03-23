@@ -1,7 +1,7 @@
 import { useState } from "react";
 import api from "../apis";
 import { Access_Token, Refresh_Token } from "../constants";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import '../styles/Form.css'
 import LoadingIndicator from "./LoadingIndicator";
 
@@ -10,8 +10,7 @@ export default function Form({route, method}) {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  console.log(method)
-  console.log(route)
+
 
   const name = method === "login" ? "Login" : "Register";
   const handleSubmit = async (e) => {
@@ -55,6 +54,12 @@ export default function Form({route, method}) {
       <button className="form-button" type="submit">
         {name}
       </button>
+      <p className="switch-text">
+        {method === "login" ? "Don't have an account?" : "Already have an account?"}{" "}
+        <Link to={method === "login" ? "/register" : "/login"} className="switch-link">
+          {method === "login" ? "Register here" : "Login here"}
+        </Link>
+      </p>
     </form>
   );
 }
