@@ -5,7 +5,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import NotFound from './pages/NotFound'
 import ProtectedRoute from './components/ProtectedRoute'
-import Navbar from './pages/NavBar'
+
 
 
 function Logout() {
@@ -21,7 +21,6 @@ function App() {
 
   return (
     <BrowserRouter>
-    <Navbar/>
     <Routes>
       <Route path="/" 
       element={
